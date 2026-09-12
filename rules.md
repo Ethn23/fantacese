@@ -47,10 +47,53 @@ Una Lega può essere composta da un massimo di trenta (30) Giocatori.
 
 All'interno della Lega il fondatore è il Saggio che ha il potere di rimuovere Giocatori o Squadre dalla Lega se essi non rispettano le regole. Inoltre ha il potere di moderatore dei profili Giocatori, la gestione dei mercati e delle opzioni della lega.
 
-## 3 Mercato
+## 3. Mercato
 
 Esistono due tipi di mercato:
 
-1. Asta, dove i Giocatori si contendono gli elementi per la propria squadra;
-1. Mercato intergiocatore, dove i Giocatori effettuano operazioni di mercato tra di loro.
+1. Asta, dove i Giocatori si contendono gli elementi per la propria squadra:
+	1. Asta libera, gestita dai giocatori, della quale gli esiti sono riportati dal Saggio della Lega sul sito,
+	1. Asta smart, dove le offerte sono pubbliche, ed è possibile offrire più volte per lo stesso giocatore,
+	1. Asta a busta chiusa, offerte nascoste, non è possibile fare più di una offerta per giocatore;
+1. Mercato intergiocatore, dove i Giocatori effettuano operazioni di mercato tra di loro, e che comprende:
+	1. Scambi, dove due Giocatori scambiano elementi dello stesso tipo tra di loro,
+	1. Vendite, dove un Giocatore cede un elemento ad un altro, che lo ricompensa in Campigotti.
 
+Ogni offerta che il Giocatore fa deve essere rispettata, percui non è possibile effettuare offerte per le quali non si ha la copertura in Campigotti, sia se non se ne posseggono abbastanza, sia se ne rimarrebbero troppi pochi per completare la squadra, anche prendendo tutti gli altri elementi a 1.
+Non è concesso in alcun momento ed ad alcun giocatore di possedere più degli elementi necessari nella propria squadra, ovvero il numero degli elementi di un dato tipo comprati sommati al numero delle offerte attive per quel tipo di elementi dev'essere sempre minore o uguale al numero di elementi di quel dato tipo previsti dalle opzioni della Lega.
+
+### 3.1. Asta smart
+
+Nell'asta smart il Saggio imposta dei round di asta durante i quali ogni Giocatore può aprire fino al numero di aste impostato dal Saggio per un dato tipo di elemento, facendo, a seconda delle impostazioni, un'offerta libera o un'offerta uguale alla FantaQuotazione™ del giocatore secondo l'algoritmo di FantaCese™.
+Ogni altro Giocatore, entro il termine dell'asta, che coincide con quello del round inizialmente, può rialzare. Al termine dell'asta il Giocatore con l'offerta più alta riceve l'elemento pagando il numero di Campigotti offerti.
+
+Se negli ultimi 30 secondi dell'asta vengono effettuate offerte per un determinato elemento, l'asta è automaticamente prolungata di 120 secondi, ovvero di 180 secondi, in caso di modifica alle impostazioni da parte del Saggio.
+
+### 3.2. Asta a busta chiusa
+
+Un Giocatore alla volta, compreso il Saggio, chiama un elemento alla volta e tutti i Giocatori, incluso il primo, sono chiamati ad effettuare un offerta in busta chiusa entro il tempo di 45 secondi, ovvero 60 in caso di modifica delle impostazioni.
+Allo scadere del tempo ad ogni Giocatore che non ha fatto la propria offerta, è assegnata l'offerta base di 1 Campigotto.
+
+Una volta che ogni Giocatore ha effettuato la sua offerta, chi ha l'offerta più alta ottiene l'elemento al prezzo risultante. In caso che più giocatori abbiano presentato la stessa offerta, il primo ad effettuarla vince l'asta. È possibile impostare che sia effettuato un altro round di offerte tra tutti i giocatori a pari offerta invece che la vittoria per tempo.
+
+### 3.3. Vendite
+
+Esistono tre tipi di vendite:
+
+1. Vendita all'asta, decisa dal Giocatore possidente;
+1. Vendita per offerta, chiesta da un Giocatore non possidente;
+1. Svincolo.
+
+#### 3.3.1. Asta
+
+Il Giocatore proprietario crea un Asta (con base a scelta), per impostazioni vedi paragrafi 3.1 e 3.2. Il Giocatore è costretto a vendere al migliore offerente.
+Se non ci sono offerte il giocatore viene svincolato.
+
+#### 3.3.2. Offerta
+
+Un Giocatore fa un'offerta per uno degli elementi di un altro. L'offerta può essere declinata, accettata o può essere proposta una controfferta, che può includere anche Scambi di giocatori.
+
+#### 3.3.3. Svincolo
+
+Il Giocatore svincola l'elemento in questione, ricevendo metà del prezzo di acquisto. Gli altri Giocatori avranno la possibilità di creare aste per questo giocatore nella prossima sessione creata dal Saggio, ovvero nelle sessioni in corso, se presenti.
+Uno svincolato non è riacquistabile nella stessa sessione d'asta nella quale è stato svincolato, ovvero nella successiva, se non ne è in corso nessuna.
