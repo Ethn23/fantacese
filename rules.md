@@ -97,3 +97,32 @@ Un Giocatore fa un'offerta per uno degli elementi di un altro. L'offerta può es
 
 Il Giocatore svincola l'elemento in questione, ricevendo metà del prezzo di acquisto. Gli altri Giocatori avranno la possibilità di creare aste per questo giocatore nella prossima sessione creata dal Saggio, ovvero nelle sessioni in corso, se presenti.
 Uno svincolato non è riacquistabile nella stessa sessione d'asta nella quale è stato svincolato, ovvero nella successiva, se non ne è in corso nessuna.
+
+## 4. FantaValutazione
+
+È vietato ogni utilizzo dell'algoritmo di FantaValutazione, in quanto l'unica FantaValutazione valida per il FantaCese™ è quella fornita dall'organizzazione tramite i canali ufficiali. È vietata la modifica, la diffusione e il riuso per qualsiasi scopo dell'algoritmo non preventivamente autorizzata con liberatoria scritta degli autori.
+
+La FantaValutazione non vuole essere una valutazione effettiva delle capacità reali di ogni elemento, ma solo una stima statistica del possibile andamento.
+
+Per qualsiasi chiarimento relativo alla FantaValutazione è possibile scrivere a [fanta.cesenatico@gmail.com].
+
+### 4.1. Valutazione individualisti
+
+La Valutazione degli individualisti è basata sui dati pubblici diffusi dal Progetto Olimpiadi della Matematica sui propri canali ufficiali, il [sito ufficiale](https://olimpiadi.dm.unibo.it/) e il [forum](https://www.oliforum.it/), per i risultati delle Finali Nazionali di Cesenatico (ITAMO), per le ammissioni agli Stage, le quote di ammissione, i dati demografici dei distretti e l'anno di corso frequentato dagli individualisti; nonché per i dati delle gare internazionali i risultati ufficiali delle [Bulgarian Mathematical Olympiad](https://bmo.ucoz.org/) (BMO), delle [International Mathematical Olympiad](https://www.imo-official.org/) (IMO) e delle [Romanian Master of Mathematic](https://rmms.lbi.ro/) (RMM).
+
+Il sistema di calcolo prevede come input i risultati degli ultimi 4 ITAMO, IMO, RMM, BMO; l'anno di corso frequentato; gli Stage ufficiali ai quali si è partecipato; i risultati, il numero di scuole e quote del distretto di provenienza.
+
+### 4.2. Valutazione squadre
+
+La Valutazione delle squadre è basata sui dati pubblici presenti negli archivi della piattaforma [Phiquadro](https://www.phiquadro.it/gara_a_squadre/archivio_sessioni.php), nonchè sulle classifiche dei siti locali per le gare non ospitate sulla piattaforma.
+
+Il sistema di calcolo prevede come input i risultati delle ultime fasi locali e delle fasi nazionali ed i risultati del distretto di provenienza negli anni precedenti.
+
+## 5. Sistema di punteggio
+
+Per qualsiasi ricorso sul calcolo dei punteggi scrivere a [fanta.cesenatico@gmail.com] entro 24 ore dalla pubblicazione dei risultati. Entro il martedì successivo alle competizioni di Cesenatico, il Gran Consiglio pubblicherà nella sezione Avvisi gli esiti dei ricorsi.
+La decisione del Gran Consiglio è inappellabile.
+
+### 5.1. Squadre
+
+### 5.2. Individualisti
