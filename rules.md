@@ -126,3 +126,8 @@ La decisione del Gran Consiglio è inappellabile.
 ### 5.1. Squadre
 
 ### 5.2. Individualisti
+
+
+## 6. AI
+
+È vietato l'utilizzo dell'AI per migliorare le proprie capacità decisionali nella gestione della squadra.
