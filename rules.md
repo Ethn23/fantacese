@@ -24,8 +24,10 @@ Se questa modalità è attivata ogni FantaSquadra è composta da esattamente 11 
 	1. Una (1) riserva
 1. Una (1) squadra femminile.
 
-La squadra riserva totalizzerà metà punteggio nella fase nella quale è schierata come riserva.
-Tra il venerdì sera e il sabato mattina è possibile cambiare la propria riserva.
+Il Giocatore è tenuto a selezionare la propria riserva prima dell'inizio della fase di gara che sta per iniziare.
+
+La squadra riserva totalizzerà metà punteggio nella fase nella quale è schierata come riserva, e il suo punteggio si sommerà ai punteggi completi delle titolari.
+Tra il venerdì sera e il sabato mattina è possibile cambiare la propria riserva, ma ciò non influenza i risultati del venerdì.
 
 ### 1.2 Varianti Capitano e Consegnatore
 
@@ -45,7 +47,7 @@ Una Lega può essere composta da un massimo di trenta (30) Giocatori.
 
 ### 2.1 Saggio
 
-All'interno della Lega il fondatore è il Saggio che ha il potere di rimuovere Giocatori o Squadre dalla Lega se essi non rispettano le regole. Inoltre ha il potere di moderatore dei profili Giocatori, la gestione dei mercati e delle opzioni della lega.
+All'interno della Lega il fondatore è il Saggio che ha il potere di rimuovere Giocatori o Squadre dalla Lega se essi non rispettano le regole. Inoltre ha la gestione dei mercati e delle opzioni della lega.
 
 ## 3. Mercato
 
@@ -60,11 +62,11 @@ Esistono due tipi di mercato:
 	1. Vendite, dove un Giocatore cede un elemento ad un altro, che lo ricompensa in Campigotti.
 
 Ogni offerta che il Giocatore fa deve essere rispettata, percui non è possibile effettuare offerte per le quali non si ha la copertura in Campigotti, sia se non se ne posseggono abbastanza, sia se ne rimarrebbero troppi pochi per completare la squadra, anche prendendo tutti gli altri elementi a 1.
-Non è concesso in alcun momento ed ad alcun giocatore di possedere più degli elementi necessari nella propria squadra, ovvero il numero degli elementi di un dato tipo comprati sommati al numero delle offerte attive per quel tipo di elementi dev'essere sempre minore o uguale al numero di elementi di quel dato tipo previsti dalle opzioni della Lega.
+Non è concesso in alcun momento ed ad alcun giocatore di possedere più degli elementi necessari nella propria squadra, ovvero il numero degli elementi di un dato tipo (o fascia d'età) comprati sommati al numero delle offerte attive per quel tipo di elementi dev'essere sempre minore o uguale al numero di elementi di quel dato tipo previsti dalle opzioni della Lega.
 
 ### 3.1. Asta smart
 
-Nell'asta smart il Saggio imposta dei round di asta durante i quali ogni Giocatore può aprire fino al numero di aste impostato dal Saggio per un dato tipo di elemento, facendo, a seconda delle impostazioni, un'offerta libera o un'offerta uguale alla FantaQuotazione™ del giocatore secondo l'algoritmo di FantaCese™.
+Nell'asta smart il Saggio imposta dei round di asta durante i quali ogni Giocatore può aprire fino al numero di aste impostato dal Saggio per un dato tipo di elemento, facendo, a seconda delle impostazioni, un'offerta libera o un'offerta uguale alla FantaQuotazione™ del giocatore secondo l'algoritmo di FantaCese™. L'asta avrà come orario di termine l'orario impostato dal Saggio per la fine del round. Non è possibile aprire aste negli ultimi 10 minuti di un round.
 Ogni altro Giocatore, entro il termine dell'asta, che coincide con quello del round inizialmente, può rialzare. Al termine dell'asta il Giocatore con l'offerta più alta riceve l'elemento pagando il numero di Campigotti offerti.
 
 Se negli ultimi 30 secondi dell'asta vengono effettuate offerte per un determinato elemento, l'asta è automaticamente prolungata di 120 secondi, ovvero di 180 secondi, in caso di modifica alle impostazioni da parte del Saggio.
@@ -95,8 +97,8 @@ Un Giocatore fa un'offerta per uno degli elementi di un altro. L'offerta può es
 
 #### 3.3.3. Svincolo
 
-Il Giocatore svincola l'elemento in questione, ricevendo metà del prezzo di acquisto. Gli altri Giocatori avranno la possibilità di creare aste per questo giocatore nella prossima sessione creata dal Saggio, ovvero nelle sessioni in corso, se presenti.
-Uno svincolato non è riacquistabile nella stessa sessione d'asta nella quale è stato svincolato, ovvero nella successiva, se non ne è in corso nessuna.
+Il Giocatore svincola l'elemento in questione, ricevendo metà del prezzo di acquisto (per difetto, eccetto se questo rimborso scendesse a 0: in quel caso il giocatore otterrebbe comunque un Campigotto). Gli altri Giocatori avranno la possibilità di creare aste per questo giocatore nella prossima sessione creata dal Saggio, ovvero nelle sessioni in corso, se presenti.
+Uno svincolato non è riacquistabile dal precedente proprietario nella stessa sessione d'asta nella quale è stato svincolato, ovvero nella successiva, se non ne è in corso nessuna.
 
 ## 4. FantaValutazione
 
@@ -117,11 +119,6 @@ Il sistema di calcolo prevede come input i risultati degli ultimi 4 ITAMO, IMO, 
 La Valutazione delle squadre è basata sui dati pubblici presenti negli archivi della piattaforma [Phiquadro](https://www.phiquadro.it/gara_a_squadre/archivio_sessioni.php), nonchè sulle classifiche dei siti locali per le gare non ospitate sulla piattaforma.
 
 Il sistema di calcolo prevede come input i risultati delle ultime fasi locali e delle fasi nazionali ed i risultati del distretto di provenienza negli anni precedenti.
-
-## 5. Sistema di punteggio
-
-Per qualsiasi ricorso sul calcolo dei punteggi scrivere a [fanta.cesenatico@gmail.com] entro 24 ore dalla pubblicazione dei risultati. Entro il martedì successivo alle competizioni di Cesenatico, il Gran Consiglio pubblicherà nella sezione Avvisi gli esiti dei ricorsi.
-La decisione del Gran Consiglio è inappellabile.
 
 ## 5. Sistema di punteggio
 
