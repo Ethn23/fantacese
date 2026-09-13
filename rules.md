@@ -123,10 +123,7 @@ Il sistema di calcolo prevede come input i risultati delle ultime fasi locali e 
 Per qualsiasi ricorso sul calcolo dei punteggi scrivere a [fanta.cesenatico@gmail.com] entro 24 ore dalla pubblicazione dei risultati. Entro il martedì successivo alle competizioni di Cesenatico, il Gran Consiglio pubblicherà nella sezione Avvisi gli esiti dei ricorsi.
 La decisione del Gran Consiglio è inappellabile.
 
-### 5.1. Squadre
-
-### 5.2. Individualisti
-
+Per maggiori informazioni si legga il documento riservato ai punteggi.
 
 ## 6. AI
 
