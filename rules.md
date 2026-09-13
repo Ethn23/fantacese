@@ -61,13 +61,16 @@ Esistono due tipi di mercato:
 	1. Scambi, dove due Giocatori scambiano elementi dello stesso tipo tra di loro,
 	1. Vendite, dove un Giocatore cede un elemento ad un altro, che lo ricompensa in Campigotti.
 
-Ogni offerta che il Giocatore fa deve essere rispettata, percui non è possibile effettuare offerte per le quali non si ha la copertura in Campigotti, sia se non se ne posseggono abbastanza, sia se ne rimarrebbero troppi pochi per completare la squadra, anche prendendo tutti gli altri elementi a 1.
-Non è concesso in alcun momento ed ad alcun giocatore di possedere più degli elementi necessari nella propria squadra, ovvero il numero degli elementi di un dato tipo (o fascia d'età) comprati sommati al numero delle offerte attive per quel tipo di elementi dev'essere sempre minore o uguale al numero di elementi di quel dato tipo previsti dalle opzioni della Lega.
+Ogni offerta che il Giocatore fa deve essere rispettata, percui non è possibile effettuare offerte per le quali non si ha la copertura in Campigotti, ovvero se:
+* non se ne posseggono abbastanza;
+* ne rimarrebbero troppi pochi per completare la squadra, anche prendendo tutti gli altri elementi a 1.
+
+Non è concesso in alcun momento ed ad alcun giocatore di possedere più degli elementi necessari nella propria squadra, ovvero il numero degli elementi di un dato tipo (o fascia d'età) già comprati sommato al numero delle offerte attive per quel tipo di elementi dev'essere sempre minore o uguale al numero di elementi di quel dato tipo (o fascia d'età) previsto dalle opzioni della Lega.
 
 ### 3.1. Asta smart
 
 Nell'asta smart il Saggio imposta dei round di asta durante i quali ogni Giocatore può aprire fino al numero di aste impostato dal Saggio per un dato tipo di elemento, facendo, a seconda delle impostazioni, un'offerta libera o un'offerta uguale alla FantaQuotazione™ del giocatore secondo l'algoritmo di FantaCese™. L'asta avrà come orario di termine l'orario impostato dal Saggio per la fine del round. Non è possibile aprire aste negli ultimi 10 minuti di un round.
-Ogni altro Giocatore, entro il termine dell'asta, che coincide con quello del round inizialmente, può rialzare. Al termine dell'asta il Giocatore con l'offerta più alta riceve l'elemento pagando il numero di Campigotti offerti.
+Ogni altro Giocatore, entro il termine dell'asta che inizialmente coincide con quello del round, può rialzare l'offerta. Al termine dell'asta il Giocatore con l'offerta più alta riceve l'elemento pagando il numero di Campigotti offerti.
 
 Se negli ultimi 30 secondi dell'asta vengono effettuate offerte per un determinato elemento, l'asta è automaticamente prolungata di 120 secondi, ovvero di 180 secondi, in caso di modifica alle impostazioni da parte del Saggio.
 
