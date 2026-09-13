@@ -123,7 +123,43 @@ Il sistema di calcolo prevede come input i risultati delle ultime fasi locali e 
 Per qualsiasi ricorso sul calcolo dei punteggi scrivere a [fanta.cesenatico@gmail.com] entro 24 ore dalla pubblicazione dei risultati. Entro il martedì successivo alle competizioni di Cesenatico, il Gran Consiglio pubblicherà nella sezione Avvisi gli esiti dei ricorsi.
 La decisione del Gran Consiglio è inappellabile.
 
-Per maggiori informazioni si legga il documento riservato ai punteggi.
+## 5. Sistema di punteggio
+
+Per qualsiasi ricorso sul calcolo dei punteggi scrivere a [fanta.cesenatico@gmail.com] entro 24 ore dalla pubblicazione dei risultati. Entro il martedì successivo alle competizioni di Cesenatico, il Gran Consiglio pubblicherà nella sezione Avvisi gli esiti dei ricorsi.
+La decisione del Gran Consiglio è inappellabile.
+
+Le formule esatte di calcolo sono pubblicate a parte nel documento tecnico ufficiale del Gran Consiglio; qui di seguito è descritto il criterio generale con cui i punteggi vengono determinati.
+
+### 5.1. Individualisti
+
+Il punteggio di ogni individualista si basa sui risultati ottenuti nei sei problemi della gara individuale. Per ciascun problema concorrono al punteggio:
+
+- il punteggio ottenuto, pesato in base al numero progressivo del problema;
+- un bonus aggiuntivo se il punteggio ottenuto su quel problema supera una soglia minima;
+- un bonus di normalizzazione, calcolato rispetto al punteggio massimo ottenuto da un qualsiasi individualista su quello stesso problema.
+
+Se un individualista non risponde a un problema, o non lo risolve, il punteggio su quel problema è considerato pari a zero (0) ai fini del calcolo.
+
+A questi contributi si aggiunge:
+
+- un bonus complessivo, calcolato sulla percentuale di punteggio totale ottenuto rispetto al massimo teorico della gara (42 punti, ovvero sei problemi da un massimo di sette punti ciascuno);
+- il bonus per menzioni e medaglie, pari a: 0 punti in assenza di menzione, 1 punto per la menzione d'onore, 4 punti per la medaglia di bronzo, 6 punti per la medaglia d'argento, 12 punti per la medaglia d'oro.
+
+**Moltiplicatore anno di corso (in fase di definizione).** È prevista l'introduzione di un moltiplicatore opzionale, attivabile dal Saggio, che premia gli individualisti iscritti agli anni di corso più bassi. La formula esatta e i relativi coefficienti sono ancora in fase di definizione da parte del Gran Consiglio; i dettagli saranno pubblicati separatamente non appena finalizzati.
+
+### 5.2. Squadre
+
+#### 5.2.1. Squadre miste
+
+Il punteggio complessivo di una squadra mista è dato dalla somma del punteggio ottenuto nella semifinale del venerdì e di quello ottenuto nella finale del sabato.
+
+**Venerdì – Semifinale.** Le squadre miste sono suddivise in quattro semifinali da sedici problemi ciascuna. Il punteggio della semifinale è calcolato in modo relativo rispetto alle altre squadre della stessa semifinale, e non in valore assoluto, per compensare eventuali differenze di livello tra le diverse semifinali. A questo si somma un bonus calcolato sulla FantaValutazione media delle squadre partecipanti alla stessa semifinale, che costituisce un coefficiente di difficoltà aggiuntivo previsto solo in questa fase.
+
+**Sabato – Finale.** Le squadre che accedono alla finale affrontano ventuno problemi. Il punteggio finale è dato dalla somma dei punti ottenuti sui singoli problemi, a cui si aggiunge un bonus calcolato in base al piazzamento ottenuto in classifica finale. In questa fase non è previsto alcun bonus legato alla FantaValutazione.
+
+#### 5.2.2. Squadra femminile
+
+La gara femminile si svolge in un'unica fase da venti problemi. Il punteggio è dato dalla somma dei punti ottenuti sui singoli problemi, a cui si aggiunge un bonus calcolato in base al piazzamento ottenuto in classifica, con lo stesso criterio della finale mista. Anche in questo caso non è previsto alcun bonus legato alla FantaValutazione.
 
 ## 6. AI
 
