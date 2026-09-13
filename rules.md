@@ -76,7 +76,7 @@ Se negli ultimi 30 secondi dell'asta vengono effettuate offerte per un determina
 Un Giocatore alla volta, compreso il Saggio, chiama un elemento alla volta e tutti i Giocatori, incluso il primo, sono chiamati ad effettuare un offerta in busta chiusa entro il tempo di 45 secondi, ovvero 60 in caso di modifica delle impostazioni.
 Allo scadere del tempo ad ogni Giocatore che non ha fatto la propria offerta, è assegnata l'offerta base di 1 Campigotto.
 
-Una volta che ogni Giocatore ha effettuato la sua offerta, chi ha l'offerta più alta ottiene l'elemento al prezzo risultante. In caso che più giocatori abbiano presentato la stessa offerta, il primo ad effettuarla vince l'asta. È possibile impostare che sia effettuato un altro round di offerte tra tutti i giocatori a pari offerta invece che la vittoria per tempo.
+Una volta che ogni Giocatore ha effettuato la sua offerta, chi ha l'offerta più alta ottiene l'elemento al prezzo risultante. In caso che più giocatori abbiano presentato la stessa offerta, il primo ad effettuarla (temporalmente) vince l'asta. Se nessuno effettua offerte il giocatore è scartato per questo round d'asta. È possibile impostare che sia effettuato un altro round di offerte tra tutti i giocatori a pari offerta invece che la vittoria per tempo.
 
 ### 3.3. Vendite
 
@@ -93,7 +93,7 @@ Se non ci sono offerte il giocatore viene svincolato.
 
 #### 3.3.2. Offerta
 
-Un Giocatore fa un'offerta per uno degli elementi di un altro. L'offerta può essere declinata, accettata o può essere proposta una controfferta, che può includere anche Scambi di giocatori.
+Un Giocatore fa un'offerta per uno degli elementi di un altro. L'offerta può essere declinata, accettata o può essere proposta una controfferta, che può includere anche Scambi di giocatori. I Campigotti offerti non tornano disponibili al Giocatore offerente fino al termine della trattativa (annullamento offerta, rifiuto, controfferta o accettazione).
 
 #### 3.3.3. Svincolo
 
