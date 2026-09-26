@@ -24,6 +24,8 @@ Se questa modalità è attivata ogni FantaSquadra è composta da esattamente 11 
 	1. Una (1) riserva
 1. Una (1) squadra femminile.
 
+La squadra riserva totalizzerà metà punteggio nella fase nella quale è schierata come riserva.
+Tra il venerdì sera e il sabato mattina è possibile cambiare la propria riserva.
 Il Giocatore è tenuto a selezionare la propria riserva prima dell'inizio della fase di gara che sta per iniziare.
 
 La squadra riserva totalizzerà metà punteggio nella fase nella quale è schierata come riserva, e il suo punteggio si sommerà ai punteggi completi delle titolari.
