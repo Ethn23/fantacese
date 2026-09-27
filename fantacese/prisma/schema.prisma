@@ -1,0 +1,296 @@
+// ============================================================
+// FantaCese — Schema Prisma (Fase 2)
+// ============================================================
+// Come usarlo:
+// 1. Copia questo contenuto in prisma/schema.prisma dentro il tuo progetto Next.js
+// 2. Configura DATABASE_URL nel file .env (es. da Neon o Supabase)
+// 3. Esegui: npx prisma migrate dev --name init
+// ============================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ------------------------------------------------------------
+// Utenti e ruoli
+// ------------------------------------------------------------
+
+enum SiteRole {
+  USER
+  SITE_ADMIN // admin globale del FantaCese (vede pagine di configurazione nascoste)
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  displayName  String
+  siteRole     SiteRole @default(USER)
+  createdAt    DateTime @default(now())
+
+  ownedLeagues      League[]           @relation("LeagueOwner")
+  memberships       LeagueMembership[]
+  fantaTeams        FantaTeam[]
+  bids              Bid[]
+  createdAuctions   Auction[]          @relation("AuctionCreator")
+}
+
+// ------------------------------------------------------------
+// Leghe
+// ------------------------------------------------------------
+
+enum LeagueRole {
+  MEMBER
+  LEAGUE_ADMIN
+}
+
+model League {
+  id        String   @id @default(cuid())
+  name      String
+  isPublic  Boolean  @default(true)
+  ownerId   String
+  owner     User     @relation("LeagueOwner", fields: [ownerId], references: [id])
+  // regole opzionali attivabili/disattivabili (definite in futuro regolamento):
+  // esempio: { "consegnatoreObbligatorio": true, "maxScambiSettimana": 3 }
+  settings  Json     @default("{}")
+  createdAt DateTime @default(now())
+
+  memberships LeagueMembership[]
+  fantaTeams  FantaTeam[]
+  auctions    Auction[]
+  trades      Trade[]
+  posts       LeaguePost[] // comunicazioni interne alla lega
+}
+
+// Tabella ponte: un utente può essere admin in una lega e membro semplice in un'altra
+model LeagueMembership {
+  id       String     @id @default(cuid())
+  userId   String
+  leagueId String
+  role     LeagueRole @default(MEMBER)
+  joinedAt DateTime   @default(now())
+
+  user   User   @relation(fields: [userId], references: [id])
+  league League @relation(fields: [leagueId], references: [id])
+
+  @@unique([userId, leagueId])
+}
+
+model LeaguePost {
+  id        String   @id @default(cuid())
+  leagueId  String
+  authorId  String
+  title     String
+  body      String
+  createdAt DateTime @default(now())
+
+  league League @relation(fields: [leagueId], references: [id])
+}
+
+// ------------------------------------------------------------
+// Individualisti e Squadre matematiche (caricati da CSV/Excel)
+// ------------------------------------------------------------
+
+model Individualist {
+  id         String   @id @default(cuid())
+  firstName  String
+  lastName   String
+  district   String
+  valuation  Float // campo V, calcolato esternamente e caricato via CSV
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  rosterEntries RosterEntry[]
+  auctionLots   AuctionLot[]
+  tradeItems    TradeItem[]
+
+  @@unique([firstName, lastName, district]) // chiave di match per l'upsert da CSV
+}
+
+enum TeamGender {
+  MIXED
+  FEMALE
+}
+
+model MathTeam {
+  id         String     @id @default(cuid())
+  name       String     @unique
+  valuation  Float
+  localRace  String // gara_locale
+  gender     TeamGender @default(MIXED)
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+
+  rosterEntries RosterEntry[]
+  auctionLots   AuctionLot[]
+  tradeItems    TradeItem[]
+}
+
+// ------------------------------------------------------------
+// Fantasquadre e rose
+// ------------------------------------------------------------
+
+model FantaTeam {
+  id        String   @id @default(cuid())
+  leagueId  String
+  ownerId   String
+  name      String
+  credits   Float // FantaCrediti attuali
+  captainId String? // id di un RosterEntry (individualista) scelto come capitano
+  createdAt DateTime @default(now())
+
+  league League @relation(fields: [leagueId], references: [id])
+  owner  User   @relation(fields: [ownerId], references: [id])
+
+  roster       RosterEntry[]
+  bids         Bid[]
+  wonLots      AuctionLot[]  @relation("LotWinner")
+  tradesFrom   Trade[]       @relation("TradeFrom")
+  tradesTo     Trade[]       @relation("TradeTo")
+
+  @@unique([leagueId, ownerId]) // una fantasquadra per utente per lega
+}
+
+// Una riga di rosa: possiede ESATTAMENTE UNO tra individualistId e mathTeamId
+// (vincolo da controllare a livello applicativo, Prisma non supporta check constraint diretti)
+model RosterEntry {
+  id              String   @id @default(cuid())
+  fantaTeamId     String
+  individualistId String?
+  mathTeamId      String?
+  pricePaid       Float
+  isCaptain       Boolean  @default(false)
+  isConsegnatore  Boolean  @default(false)
+  acquiredAt      DateTime @default(now())
+
+  fantaTeam     FantaTeam      @relation(fields: [fantaTeamId], references: [id])
+  individualist Individualist? @relation(fields: [individualistId], references: [id])
+  mathTeam      MathTeam?      @relation(fields: [mathTeamId], references: [id])
+}
+
+// ------------------------------------------------------------
+// Mercato: Aste
+// ------------------------------------------------------------
+
+enum AuctionType {
+  BLIND   // busta chiusa
+  RAISE   // a rialzo
+  LIVE    // gestita live dall'admin
+}
+
+enum AuctionCategory {
+  INDIVIDUALISTS
+  TEAMS_MIXED
+  TEAMS_FEMALE
+}
+
+enum AuctionStatus {
+  DRAFT
+  OPEN
+  CLOSED
+}
+
+model Auction {
+  id           String          @id @default(cuid())
+  leagueId     String
+  type         AuctionType
+  category     AuctionCategory
+  status       AuctionStatus   @default(DRAFT)
+  createdById  String
+  // impostazioni specifiche per tipo, es. { "minPrice": "valuation" | "one", "extensionSeconds": 150 }
+  settings     Json            @default("{}")
+  createdAt    DateTime        @default(now())
+
+  league    League       @relation(fields: [leagueId], references: [id])
+  createdBy User         @relation("AuctionCreator", fields: [createdById], references: [id])
+  lots      AuctionLot[]
+}
+
+enum LotStatus {
+  PENDING // non ancora aperto (usato per busta chiusa / rialzo prima della chiamata)
+  OPEN
+  CLOSED
+}
+
+// Un "lotto" = un individualista o una squadra messo all'asta in un dato momento
+model AuctionLot {
+  id              String    @id @default(cuid())
+  auctionId       String
+  individualistId String?
+  mathTeamId      String?
+  status          LotStatus @default(PENDING)
+  openedAt        DateTime?
+  closingAt       DateTime? // usato per l'asta a rialzo, con proroga
+  currentAmount   Float?
+  winnerTeamId    String?
+  createdAt       DateTime  @default(now())
+
+  auction       Auction        @relation(fields: [auctionId], references: [id])
+  individualist Individualist? @relation(fields: [individualistId], references: [id])
+  mathTeam      MathTeam?      @relation(fields: [mathTeamId], references: [id])
+  winnerTeam    FantaTeam?     @relation("LotWinner", fields: [winnerTeamId], references: [id])
+  bids          Bid[]
+}
+
+model Bid {
+  id           String   @id @default(cuid())
+  auctionLotId String
+  fantaTeamId  String
+  userId       String // chi ha materialmente fatto l'offerta (utile se un domani più persone gestiscono una fantasquadra)
+  amount       Float
+  createdAt    DateTime @default(now())
+
+  lot       AuctionLot @relation(fields: [auctionLotId], references: [id])
+  fantaTeam FantaTeam  @relation(fields: [fantaTeamId], references: [id])
+  user      User       @relation(fields: [userId], references: [id])
+}
+
+// ------------------------------------------------------------
+// Mercato: Scambi e vendite tra giocatori
+// ------------------------------------------------------------
+
+enum TradeStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+  CANCELLED
+}
+
+model Trade {
+  id           String      @id @default(cuid())
+  leagueId     String
+  fromTeamId   String
+  toTeamId     String
+  status       TradeStatus @default(PENDING)
+  createdAt    DateTime    @default(now())
+  respondedAt  DateTime?
+
+  league   League      @relation(fields: [leagueId], references: [id])
+  fromTeam FantaTeam   @relation("TradeFrom", fields: [fromTeamId], references: [id])
+  toTeam   FantaTeam   @relation("TradeTo", fields: [toTeamId], references: [id])
+  items    TradeItem[]
+}
+
+enum TradeDirection {
+  FROM_GIVES // ceduto da fromTeam a toTeam
+  TO_GIVES   // ceduto da toTeam a fromTeam
+}
+
+// Ogni riga rappresenta un elemento ceduto in una direzione: un individualista,
+// una squadra, OPPURE crediti (esattamente uno dei tre valorizzato)
+model TradeItem {
+  id              String         @id @default(cuid())
+  tradeId         String
+  direction       TradeDirection
+  individualistId String?
+  mathTeamId      String?
+  credits         Float?
+
+  trade         Trade          @relation(fields: [tradeId], references: [id])
+  individualist Individualist? @relation(fields: [individualistId], references: [id])
+  mathTeam      MathTeam?      @relation(fields: [mathTeamId], references: [id])
+}
