@@ -101,6 +101,13 @@ model Individualist {
   lastName   String
   district   String
   valuation  Float // campo V, calcolato esternamente e caricato via CSV
+  qsc             Float?
+  qn              Float?
+  qe              Float?
+  qd              Float?
+  qp              Float?
+  qsi             Float?
+  rawComponents   Json     @default("{}")
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
 
@@ -120,6 +127,7 @@ model MathTeam {
   id         String     @id @default(cuid())
   name       String     @unique
   valuation  Float
+  historicalResults Json   @default("{}")
   localRace  String // gara_locale
   gender     TeamGender @default(MIXED)
   createdAt  DateTime   @default(now())
